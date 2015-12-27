@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>12306刷票插件 - 选项配置</title>
+    <link href="css/options.css" rel="stylesheet" type="text/css">
+    <script src="js/station_name.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="page_head"><h3>12306刷票插件 - 选项配置</h3></div>
+<div class="content">
+    <ul>
+        <li>
+            <label for="username">登陆账号：</label><input type="text" id="username" placeholder="登陆账号" title="登陆账号"/>
+        </li>
+        <li>
+            <label for="password">登陆密码：</label><input type="text" id="password" placeholder="登陆密码" title="登陆密码"/>
+        </li>
+        <li>
+            <label for="from_station_text">出发车站：</label><input type="text" id="from_station_text" placeholder="出发车站中文名称" title="出发车站中文名称"/>
+        </li>
+        <li>
+            <label for="to_station_text">到达车站：</label><input type="text" id="to_station_text" placeholder="到达车站中文名称" title="到达车站中文名称"/>
+        </li>
+        <li>
+            <label for="start_date">出发日期：</label><input type="date" id="start_date" placeholder="出发日期（格式YYYY-MM-DD）" title="出发日期（格式YYYY-MM-DD）"/>
+        </li>
+        <li>
+            <label for="start_time">发车时间：</label>
+            <select id="start_time" title="选择发车时间">
+                <option value="00002400">00:00--24:00</option>
+                <option value="00000600">00:00--06:00</option>
+                <option value="06001200">06:00--12:00</option>
+                <option value="12001800">12:00--18:00</option>
+                <option value="18002400">18:00--24:00</option>
+            </select>
+        </li>
+        <li>
+            <label for="prior">优先类别：</label>
+            <select id="prior" title="选择席别优先/车次优先">
+                <option value="">选择席别优先/车次优先</option>
+                <option value="1">席别优先</option>
+                <option value="2">车次优先</option>
+            </select>
+        </li>
+        <li>
+            <label>优先席别：</label>
+            <ul>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_01" title="商务座" value="商务座"/>
+                    <label for="prior_site_01">商务座</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_02" title="特等座" value="特等座"/>
+                    <label for="prior_site_02">特等座</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_03" title="一等座" value="一等座"/>
+                    <label for="prior_site_03">一等座</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_04" title="二等座" value="二等座"/>
+                    <label for="prior_site_04">二等座</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_05" title="高级软卧" value="高级软卧"/>
+                    <label for="prior_site_05">高级软卧</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_06" title="软卧" value="软卧"/>
+                    <label for="prior_site_06">软卧</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_07" title="硬卧" value="硬卧"/>
+                    <label for="prior_site_07">硬卧</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_08" title="动卧" value="动卧"/>
+                    <label for="prior_site_08">动卧</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_09" title="高级动卧" value="高级动卧"/>
+                    <label for="prior_site_09">高级动卧</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_10" title="软座" value="软座"/>
+                    <label for="prior_site_10">软座</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_11" title="硬座" value="硬座"/>
+                    <label for="prior_site_11">硬座</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="prior_site" id="prior_site_12" title="无座" value="无座"/>
+                    <label for="prior_site_12">无座</label>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <label for="prior_train">优先车次：</label>
+            <input class="to_up" type="text" id="prior_train" placeholder="优先车次(最多设置5个,逗号分隔)" title="优先车次(最多设置5个,逗号分隔)"/>
+        </li>
+        <li>
+            <label>车次类型：</label>
+            <ul>
+                <li>
+                    <input type="checkbox" name="train_type" id="train_type_00" title="GC-高铁/城际" value="G"/>
+                    <label for="train_type_00">GC-高铁</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="train_type" id="train_type_01" title="D-动车" value="D"/>
+                    <label for="train_type_01">D-动车</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="train_type" id="train_type_02" title="Z-直达" value="Z"/>
+                    <label for="train_type_02">Z-直达</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="train_type" id="train_type_03" title="T-特快" value="T"/>
+                    <label for="train_type_03">T-特快</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="train_type" id="train_type_04" title="K-快速" value="K"/>
+                    <label for="train_type_04">K-快速</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="train_type" id="train_type_05" title="其他" value="QT"/>
+                    <label for="train_type_05">其他</label>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <label for="passenger">购票乘客：</label><input type="text" id="passenger" placeholder="乘客信息(常用联系人,逗号分隔)" title="格式：&#10;姓名(成人/学生/儿童)(身份证编号/护照编号)&#10;可添加多个乘客，分隔符为半角逗号"/>
+        </li>
+    </ul>
+    <input type="button" id="save" value="保存"/>
+</div>
+
+<div class="bottom">2015-12-27更新<a href="https://github.com/zhanghe06" target="_blank">[项目地址]</a></div>
+<script src="js/options.js"></script>
+</body>
+</html>
