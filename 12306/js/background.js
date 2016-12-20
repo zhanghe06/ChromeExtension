@@ -44,24 +44,37 @@ chrome.runtime.sendMessage('fuck', function(response) {
 
     //设置弹窗选项
     var option_btns = document.getElementsByClassName('btn-small');
-    if(passenger != '' && passenger.length > 0){
+    passenger.forEach(function (passenger_item) {
         //乘车人员
         //打开弹窗
         option_btns[0].click();
+        document.getElementById('searchPassenger').value = passenger_item;  //乘车人员姓名填入搜索框
+        document.getElementsByClassName('quick-box-hd').item(0).childNodes[2].click();  //刷新，缩小集合
         var ul=document.getElementById('buyer-list');
         var lis=ul.childNodes;
         for(var i_li=0;i_li<lis.length;i_li++){
-            if(passenger.indexOf(lis.item(i_li).textContent)>-1){
-                lis.item(i_li).firstChild.click();
+            if(passenger_item.indexOf(lis.item(i_li).textContent)>-1){
+                lis.item(i_li).click();
             }
         }
-        //关闭弹窗
-        document.getElementsByClassName('quick-box-hd').item(0).firstChild.click();
+    });
+    //关闭弹窗
+    document.getElementsByClassName('quick-box-hd').item(0).firstChild.click();
+
+    //优先车次(最多能设置5个)
+    if(prior_train != '' && prior_train.length > 0 && prior_train.length <= 5){
+        //打开弹窗
+        option_btns[1].click();
+        prior_train.forEach(function (element) {
+            document.getElementById('inp-train').value = element;
+            document.getElementById('add-train').click();
+        });
     }
+
     if(prior_site != '' && prior_site.length > 0){
         //优先席别
         //打开弹窗
-        option_btns[1].click();
+        option_btns[2].click();
         prior_site.forEach(function (element) {
             document.getElementsByName(element)[0].click();
         });
@@ -76,14 +89,6 @@ chrome.runtime.sendMessage('fuck', function(response) {
         if(train_type.indexOf(train_type_node.item(i_type).value)>-1){
             train_type_node.item(i_type).click();
         }
-    }
-
-    //优先车次(最多能设置5个)
-    if(prior_train == '' || prior_train.length == 0){
-        prior_train.forEach(function (element) {
-            document.getElementById('inp-train').value = element;
-            document.getElementById('add-train').click();
-        });
     }
 
     //备选日期
