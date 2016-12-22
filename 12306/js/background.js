@@ -44,16 +44,17 @@ chrome.runtime.sendMessage('fuck', function(response) {
 
     //设置弹窗选项
     var option_btns = document.getElementsByClassName('btn-small');
+
+    //乘车人员
+    //打开弹窗
+    option_btns[0].click();
     passenger.forEach(function (passenger_item) {
-        //乘车人员
-        //打开弹窗
-        option_btns[0].click();
         document.getElementById('searchPassenger').value = passenger_item;  //乘车人员姓名填入搜索框
         document.getElementsByClassName('quick-box-hd').item(0).childNodes[2].click();  //刷新，缩小集合
         var ul=document.getElementById('buyer-list');
         var lis=ul.childNodes;
         for(var i_li=0;i_li<lis.length;i_li++){
-            if(passenger_item.indexOf(lis.item(i_li).textContent)>-1){
+            if(lis.item(i_li).textContent.indexOf(passenger_item)>-1){
                 lis.item(i_li).click();
             }
         }
@@ -63,10 +64,8 @@ chrome.runtime.sendMessage('fuck', function(response) {
 
     //优先车次(最多能设置5个)
     if(prior_train != '' && prior_train.length > 0 && prior_train.length <= 5){
-        //打开弹窗
-        option_btns[1].click();
-        prior_train.forEach(function (element) {
-            document.getElementById('inp-train').value = element;
+        prior_train.forEach(function (prior_train_item) {
+            document.getElementById('inp-train').value = prior_train_item;
             document.getElementById('add-train').click();
         });
     }
